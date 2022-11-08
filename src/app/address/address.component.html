@@ -1,0 +1,42 @@
+<div>
+           <!-- {{whichOne}} -->
+    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+        <mat-label>House/Village</mat-label>
+        <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.house" matInput placeholder="138/B">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+        <mat-label>Road/Block/Sector/Upazila</mat-label>
+        <input [(ngModel)]="currentAdd.road" matInput placeholder="14">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 30%;" layout-align="end center">
+        <mat-label>Police Station</mat-label>
+        <input [(ngModel)]="currentAdd.policeStation" matInput placeholder="Uttara">
+      </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+        <mat-label>Post Office</mat-label>
+        <input [(ngModel)]="currentAdd.postOffice" matInput placeholder="Uttara">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+        <mat-label>Post Code</mat-label>
+        <input [(ngModel)]="currentAdd.postCode" matInput placeholder="1230">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 30%;" layout-align="end center">
+        <mat-label>District</mat-label>
+        <input [(ngModel)]="currentAdd.district" matInput placeholder="Dhaka">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 30%;" layout-align="end center">
+        <mat-label>Country</mat-label>
+        <mat-select [(ngModel)]="currentAdd.country">
+            <mat-option value="Bangladesh">Bangladesh</mat-option>
+            <mat-option value="Russia">Russia</mat-option>
+            <mat-option value="Canada">Canada</mat-option>
+          </mat-select>
+      </mat-form-field>
+       
+</div>

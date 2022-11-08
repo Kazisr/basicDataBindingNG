@@ -1,0 +1,129 @@
+<br>
+<mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="50%" fxFlex.lg="50%">
+    <div class="mat-headline" style="text-align: center;">
+       <!-- {{userData.presentAddress|json}}
+       {{userData.permanentAddress|json}} -->
+        <u>PERSONAL INFORMATION FORM</u> </div>
+    <div>
+        <mat-form-field appearance="outline" style="width: 30%;">
+            <mat-label>ID No: </mat-label>
+            <input [(ngModel)]="userData.ID" matInput placeholder="12345" required minlength="5">
+            <mat-icon matSuffix>account_box</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+                <mat-label>First Name</mat-label>
+                <input [(ngModel)]="userData.Name.first" name="login" matInput placeholder="Leonardo" required >
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+                <mat-label>Last Name</mat-label>
+                <input [(ngModel)]="userData.Name.last"matInput placeholder="DiCaprio" required >
+              </mat-form-field>
+              <mat-form-field appearance="outline" style="width: 30%;">
+                <mat-label>Suffix</mat-label>
+                <input [(ngModel)]="userData.Name.suffix" name="login" matInput placeholder="Jr." required >
+            </mat-form-field>
+
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Father's Name</mat-label>
+                <input [(ngModel)]="userData.faName" matInput placeholder="Mr. Adam" required >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;" required >
+                <mat-label>Father's Occupation</mat-label>
+                <input [(ngModel)]="userData.faOccu" matInput placeholder="Teacher" required >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Mother's Name</mat-label>
+                <input [(ngModel)]="userData.maName" matInput placeholder="Mrs. Abby" required >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Mother's Occupation</mat-label>
+                <input [(ngModel)]="userData.maOccu" matInput placeholder="Homemaker" required >
+            </mat-form-field>
+
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class=".mat-body-2">
+            <br>
+            <u>Present Address</u>
+         </div>
+        <app-address (parentEvent)="recievePresent($event)"></app-address>
+
+        <mat-divider></mat-divider>
+
+        <div class=".mat-body-2">
+            <br>
+            <u>Permanent Address</u>
+         </div>
+        <app-address (parentEvent)="recievePermanent($event)"></app-address>
+
+        <mat-divider></mat-divider>
+        <div>
+            <br>
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Mobile No: </mat-label>
+                <input [(ngModel)]="userData.mNumber" matInput placeholder="+88012313211" required >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Phone No:</mat-label>
+                <input [(ngModel)]="userData.pNumber" matInput placeholder="+934243242" required >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Email Address</mat-label>
+                <input [(ngModel)]="userData.email"matInput placeholder="abc@gmail.com" required >
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;" layout-align="end center">
+                <mat-label>Gender</mat-label>
+                <mat-select [(ngModel)]="userData.gender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+                  </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%" layout-align="end center">
+                <mat-label>Religion</mat-label>
+                <mat-select [(ngModel)]="userData.religion" required >
+                    <mat-option value="Muslim">Muslim</mat-option>
+                    <mat-option value="Hinduism">Hinduism</mat-option>
+                    <mat-option value="Christianity">Christianity</mat-option>
+                    <mat-option value="Buddhism">Buddhism</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" style="width: 30%;" layout-align="end center">
+                <mat-label>Nationality</mat-label>
+                <mat-select [(ngModel)]="userData.nationality" required>
+                    <mat-option value="Bangladeshi">Bangladeshi</mat-option>
+                    <mat-option value="Russian">Russian</mat-option>
+                    <mat-option value="Canadian">Canadian</mat-option>
+                  </mat-select>
+              </mat-form-field>
+
+          <mat-form-field *ngIf="userData.nationality=='Russian'" appearance="outline" style="width: 30%;" layout-align="end center">
+            <mat-label>State</mat-label>
+            <mat-select [(ngModel)]="userData.state" required>
+              <mat-option value="Adygea">Adygea</mat-option>
+              <mat-option value="Tatarstan">Tatarstan</mat-option>
+              <mat-option value="Khakassia">Khakassia</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-card-actions align="end">
+                <button type="submit"(click)=next() mat-raised-button>Next</button>
+              </mat-card-actions>
+            </div>
+</mat-card>
