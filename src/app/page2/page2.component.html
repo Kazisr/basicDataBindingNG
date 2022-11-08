@@ -1,1 +1,18 @@
-<p>page2 works!</p>
+<br>
+<mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
+  <div class="mat-headline" style="text-align: center;">
+    <!-- {{userData.presentAddress|json}}
+    {{userData.permanentAddress|json}} -->
+    <u>PERSONAL INFORMATION FORM</u> </div>
+  <div>
+    <mat-form-field appearance="outline" style="width: 30%;">
+      <mat-label>Blood Group </mat-label>
+      <input [(ngModel)]="this.usrData.bloodGroup " matInput placeholder="12345" required minlength="5">
+      <mat-icon matSuffix>account_box</mat-icon>
+    </mat-form-field>
+
+    <mat-card-actions align="end">
+      <button type="submit"(click)=next() mat-raised-button>Next</button>
+    </mat-card-actions>
+  </div>
+</mat-card>

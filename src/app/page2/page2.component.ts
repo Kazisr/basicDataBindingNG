@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../service/data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-page2',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page2Component implements OnInit {
 
-  constructor() { }
-
+  constructor(private data: DataService, private router: Router) { }
+  usrData :any;
   ngOnInit(): void {
+  this.usrData = this.data.getUserData();
+  }
+
+  next(){
+
+
+    this.data.setUserData(this.usrData);
+    this.router.navigate(['/p3'])
+
   }
 
 }

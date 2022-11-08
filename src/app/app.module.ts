@@ -18,6 +18,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -42,9 +43,10 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatDividerModule,
     MatButtonModule,
-    FormsModule
-    
-    
+    FormsModule,
+    HttpClientModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

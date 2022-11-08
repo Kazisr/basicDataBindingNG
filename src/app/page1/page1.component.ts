@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {HttpClient} from "@angular/common/http";
+import {DataService} from "../service/data.service";
 
 
 
@@ -13,19 +15,28 @@ export class Page1Component implements OnInit {
   // userData:User = new User();
 
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private http: HttpClient, private data: DataService) { }
 
   ngOnInit(): void {
   }
 
   next(){
   // this.userData.presentAddress = aaa;
-
-    console.log(this.userData);
+    this.data.setUserData(this.userData);
     // console.log(this.userData.presentAddress)
     this.router.navigate(['/p2'])
 
   }
+
+  selectedFile = null;
+    onFileSelected(event:any){
+      this.selectedFile=event.target.files[0];
+  }
+
+  onUpload(){
+  // this.http.post("");
+  }
+
 
   recievePresent($event: { house: string; road: string; policeStation: string; postOffice: string; postCode: string; district: string; country: string; }){
     this.userData.presentAddress = $event;
