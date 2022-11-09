@@ -1,0 +1,69 @@
+<div class="splitL left">
+  <div class="centered">
+    <mat-card class="cardBig" fxFlex="70%" fxFlex.xs="70%" fxFlex.sm="100%" fxFlex.md="60%" fxFlex.lg="70%">
+      <div class=".mat-headline" style="text-align: center;">
+        <h2>SIGN UP YOUR PAYMENT ACCOUNT</h2>
+        <h4>Fill all form field to go next step</h4>
+        <mat-divider></mat-divider>
+      </div>
+
+      <mat-stepper>
+        <mat-step label="Step 1" state="phone">
+          <app-first></app-first>
+          <div>
+            <br>
+            <button mat-raised-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Step 2" state="chat">
+          <app-second></app-second>
+          <div>
+            <br>
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Step 3">
+          <app-third></app-third>
+          <div>
+            <br>
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Step 4" state="chat">
+          <app-forth></app-forth>
+          <div>
+            <br>
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step label="Step 5">
+          <app-fifth></app-fifth>
+        </mat-step>
+
+        <!-- Icon overrides. -->
+        <ng-template matStepperIcon="phone">
+          <mat-icon>call_end</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="chat">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+      </mat-stepper>
+    </mat-card>
+  </div>
+</div>
+
+<div class="splitR right">
+  <div class="centered">
+    <br>
+    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
+      {{usrData |json}}
+    </mat-card>
+  </div>
+</div>
+
+<ng-container>
+
+</ng-container>
