@@ -5,7 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .txtMD{
   display: flex;
   justify-content: center;
-    
+
 }
 
 .logo{
@@ -15,8 +15,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .card{
   background-color: rgb(229, 237, 238);
- 
   display: flex;
   margin: auto;
+  margin-top: 10%;
+}
+
+.content3r{
+  display: flex;
+  flex-wrap: wrap;
+}
+.content3r > *{
+  flex: 2 2 33%;
+}
+
+.content4r{
+  display: flex;
+  flex-wrap: wrap;
+}
+.content4r > *{
+  flex: 1 1 25%;
 }
 

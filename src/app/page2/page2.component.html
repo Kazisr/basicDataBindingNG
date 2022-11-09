@@ -1,3 +1,4 @@
+<!--{{usrData.placeOfBirth|json}}-->
 <br>
 <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
   <div class="mat-headline" style="text-align: center;">
@@ -5,14 +6,120 @@
     {{userData.permanentAddress|json}} -->
     <u>PERSONAL INFORMATION FORM</u> </div>
   <div>
-    <mat-form-field appearance="outline" style="width: 30%;">
-      <mat-label>Blood Group </mat-label>
-      <input [(ngModel)]="this.usrData.bloodGroup " matInput placeholder="12345" required minlength="5">
-      <mat-icon matSuffix>account_box</mat-icon>
+
+    <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%" layout-align="end center">
+      <mat-label>Blood Group</mat-label>
+      <mat-icon matSuffix>bloodtype</mat-icon>
+      <mat-select [(ngModel)]="this.usrData.bloodGroup" required>
+        <mat-option value="A+">A positive</mat-option>
+        <mat-option value="B+">B positive</mat-option>
+        <mat-option value="AB+">AB positive</mat-option>
+        <mat-option value="O+">O positive</mat-option>
+        <mat-option value="A-">A negative</mat-option>
+        <mat-option value="B-">B negative</mat-option>
+        <mat-option value="AB-">AB negative</mat-option>
+        <mat-option value="O-">O negative</mat-option>
+      </mat-select>
     </mat-form-field>
 
-    <mat-card-actions align="end">
-      <button type="submit"(click)=next() mat-raised-button>Next</button>
-    </mat-card-actions>
+    <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
+      <mat-label>Date of Birth</mat-label>
+      <input [(ngModel)]="usrData.DOB" matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+
+
+    <div><mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Mediacl Disability </mat-label>
+      <input [(ngModel)]="usrData.medicaLDisAbility" matInput placeholder="Give information about your medical disability in any">
+    </mat-form-field></div>
+
+
   </div>
+
+  <mat-divider></mat-divider>
+
+  <div class=".mat-body-2">
+    <br>
+    <u>Place of Birth</u>
+  </div>
+  <app-address (parentEvent)="recievePlaceOfBirth($event)"></app-address>
+
+  <mat-divider></mat-divider>
+
+  <div>
+    <br>
+  </div>
+  <div class="content3r">
+
+    <div><mat-form-field appearance="outline" style="width: 95%">
+      <mat-label>National ID No: </mat-label>
+      <input type="number" [(ngModel)]="usrData.NID" name="login" matInput placeholder="192873711" required >
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline" style="width: 95%">
+      <mat-label>Passport No: </mat-label>
+      <input [(ngModel)]="usrData.passpoartNum"matInput placeholder="BX2342323" >
+    </mat-form-field></div>
+    <div>
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>TIN No: </mat-label>
+        <input type="number" [(ngModel)]="usrData.TIN" name="login" matInput placeholder="61255454545" >
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%" layout-align="end center">
+    <mat-label>Marital Status</mat-label>
+    <mat-select [(ngModel)]="usrData.maritalStatus" required>
+      <mat-option value="Married">Married</mat-option>
+      <mat-option value="Unmarried">Unmarried</mat-option>
+      <mat-option value="Divorced">Divorced</mat-option>
+      <mat-option value="Widowed">Widowed</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div>
+    <div class=".mat-body-2">
+      <br>
+      <u>Emergency Contact</u>
+<!--      {{usrData.emergency| json}}-->
+    </div>
+    <div class="content4r">
+      <div><mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="usrData.emergency.name" name="login" matInput placeholder="Leonardo DiCaprio" required >
+      </mat-form-field></div>
+      <div><mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input [(ngModel)]="usrData.emergency.address"matInput placeholder="house#147/B, secror 14, uttara" required >
+      </mat-form-field></div>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile No:</mat-label>
+          <input type="number" [(ngModel)]="usrData.emergency.mobileNo" name="login" matInput placeholder="+8801751610399" required >
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Relation</mat-label>
+          <mat-select [(ngModel)]="usrData.emergency.relationship" required>
+            <mat-option value="Father">Father</mat-option>
+            <mat-option value="Mother">Mother</mat-option>
+            <mat-option value="Sister">Sister</mat-option>
+            <mat-option value="Brother">Brother</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    </div>
+
+
+  <mat-card-actions align="end">
+    <button type="submit"(click)=next() mat-raised-button>Next</button>
+  </mat-card-actions>
 </mat-card>

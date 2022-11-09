@@ -11,7 +11,9 @@ export class DataService {
   userData = {
     ID:"",
     Name:{
+      prefix:"",
       first:"",
+      middle:"",
       last:"",
       suffix:"",
     },
@@ -27,6 +29,7 @@ export class DataService {
       postCode:"",
       district:"",
       country:"",
+      state:"",
     },
     permanentAddress:{
       house:"",
@@ -36,6 +39,7 @@ export class DataService {
       postCode:"",
       district:"",
       country:"",
+      state:"",
     },
     mNumber:"",
     pNumber:"",
@@ -45,7 +49,29 @@ export class DataService {
     nationality:"",
     state:"",
     bloodGroup:"",
-    amiNotunForP3:"",
+    medicaLDisAbility:"",
+    DOB:"",
+    placeOfBirth:{
+      house:"",
+      road:"",
+      policeStation:"",
+      postOffice:"",
+      postCode:"",
+      district:"",
+      country:"",
+      state:"",
+    },
+    NID:"",
+    passpoartNum:"",
+    TIN:"",
+    maritalStatus:"",
+    emergency:{
+      name:"",
+      address:"",
+      mobileNo:"",
+      relationship:"",
+
+    },
 
   };
 

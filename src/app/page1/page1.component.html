@@ -1,3 +1,4 @@
+<!--{{userData.presentAddress |json}}{{userData.permanentAddress |json}}-->
 <br>
 <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
     <div class="mat-headline" style="text-align: center;">
@@ -13,20 +14,21 @@
 <!--        <input type="file" (change)="onFileSelected($event)">-->
 <!--        <button type ="button" (click)="onUpload()">Upload</button>-->
     </div>
-        <div>
-            <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
-                <mat-label>First Name</mat-label>
-                <input [(ngModel)]="userData.Name.first" name="login" matInput placeholder="Leonardo" required >
+        <div class="content3r">
+          <div><mat-form-field appearance="outline" style="width: 95%">
+            <mat-label>First Name</mat-label>
+            <input [(ngModel)]="userData.Name.first" name="login" matInput placeholder="Leonardo" required >
+          </mat-form-field></div>
+          <div><mat-form-field appearance="outline" style="width: 95%">
+            <mat-label>Last Name</mat-label>
+            <input [(ngModel)]="userData.Name.last"matInput placeholder="DiCaprio" required >
+          </mat-form-field></div>
+          <div>
+            <mat-form-field appearance="outline" style="width: 100%">
+              <mat-label>Suffix</mat-label>
+              <input [(ngModel)]="userData.Name.suffix" name="login" matInput placeholder="Jr." required >
             </mat-form-field>
-            <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
-                <mat-label>Last Name</mat-label>
-                <input [(ngModel)]="userData.Name.last"matInput placeholder="DiCaprio" required >
-              </mat-form-field>
-              <mat-form-field appearance="outline" style="width: 30%;">
-                <mat-label>Suffix</mat-label>
-                <input [(ngModel)]="userData.Name.suffix" name="login" matInput placeholder="Jr." required >
-            </mat-form-field>
-
+          </div>
         </div>
 
         <div>
@@ -73,7 +75,7 @@
             <br>
             <mat-form-field appearance="outline" style="width: 100%;">
                 <mat-label>Mobile No: </mat-label>
-                <input [(ngModel)]="userData.mNumber" matInput placeholder="+88012313211" required >
+                <input [(ngModel)]="userData.mNumber" matInput placeholder="+8801751610399" required >
             </mat-form-field>
 
             <mat-form-field appearance="outline" style="width: 100%;">
@@ -83,7 +85,7 @@
 
             <mat-form-field appearance="outline" style="width: 100%;">
                 <mat-label>Email Address</mat-label>
-                <input [(ngModel)]="userData.email"matInput placeholder="abc@gmail.com" required >
+                <input [(ngModel)]="userData.email"matInput placeholder="someone@gmail.com" required >
             </mat-form-field>
 
 
@@ -99,7 +101,7 @@
               <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%" layout-align="end center">
                 <mat-label>Religion</mat-label>
                 <mat-select [(ngModel)]="userData.religion" required >
-                    <mat-option value="Muslim">Muslim</mat-option>
+                    <mat-option value="Islam">Islam</mat-option>
                     <mat-option value="Hinduism">Hinduism</mat-option>
                     <mat-option value="Christianity">Christianity</mat-option>
                     <mat-option value="Buddhism">Buddhism</mat-option>
@@ -114,15 +116,6 @@
                     <mat-option value="Canadian">Canadian</mat-option>
                   </mat-select>
               </mat-form-field>
-
-          <mat-form-field *ngIf="userData.nationality=='Russian'" appearance="outline" style="width: 30%;" layout-align="end center">
-            <mat-label>State</mat-label>
-            <mat-select [(ngModel)]="userData.state" required>
-              <mat-option value="Adygea">Adygea</mat-option>
-              <mat-option value="Tatarstan">Tatarstan</mat-option>
-              <mat-option value="Khakassia">Khakassia</mat-option>
-            </mat-select>
-          </mat-form-field>
 
           <mat-card-actions align="end">
                 <button type="submit"(click)=next() mat-raised-button>Next</button>

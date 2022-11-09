@@ -21,7 +21,8 @@ export class AddressComponent implements OnInit {
   postOffice:"",
   postCode:"",
   district:"",
-  country:"",
+  country:"Bangladesh",
+   state:"",
 }
 
 @Output() parentEvent = new EventEmitter<any>();

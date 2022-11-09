@@ -16,11 +16,14 @@ export class Page2Component implements OnInit {
   }
 
   next(){
-
-
     this.data.setUserData(this.usrData);
     this.router.navigate(['/p3'])
 
   }
+
+  recievePlaceOfBirth($event:any){
+    this.usrData.placeOfBirth = $event;
+  }
+
 
 }

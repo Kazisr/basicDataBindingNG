@@ -18,8 +18,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-
+import {HttpClient, HttpClientModule} from "@angular/common/http"
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ThirdComponent } from './third/third.component';
+import { ForthComponent } from './forth/forth.component';
+import { FifthComponent } from './fifth/fifth.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +37,12 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     Page2Component,
     Page3Component,
     HeaderComponent,
-    AddressComponent
+    AddressComponent,
+    FirstComponent,
+    SecondComponent,
+    ThirdComponent,
+    ForthComponent,
+    FifthComponent
   ],
   imports: [
     BrowserModule,
@@ -45,10 +59,16 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
+    ReactiveFormsModule,
+    BrowserModule,
 
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,64 @@
+<mat-grid-list cols="3"  rowHeight="1:4"  >
+  <mat-grid-tile [colspan]="2">
+    <br>
+    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
+      <div class=".mat-headline" style="text-align: center;">
+        <h2>SIGN UP YOUR PAYMENT ACCOUNT</h2>
+        <h4>Fill all form field to go next step</h4>
+        <mat-divider></mat-divider>
+
+        <div class=".mat-body-2">
+          <br>
+          Parents Information
+          <div>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <div>
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
+          <mat-label>Father Name</mat-label>
+          <input [(ngModel)]="usrData.faName" name="prefix" matInput placeholder="Leonardo" required >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%;">
+          <mat-label>Father Occupation</mat-label>
+          <mat-select [(ngModel)]="usrData.faOccu" name="food">
+            <mat-option *ngFor="let occu of occupationsFa" [value]="occu.value">
+              {{occu.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
+          <mat-label>Mother Name</mat-label>
+          <input [(ngModel)]="usrData.maName" name="prefix" matInput placeholder="Leonardo" required >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%;">
+          <mat-label>Mother Occupation</mat-label>
+          <mat-select [(ngModel)]="usrData.maOccu" name="food">
+            <mat-option *ngFor="let occu of occupationsMa" [value]="occu.value">
+              {{occu.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <mat-card-actions align="end">
+        <button type="submit"(click)=next() mat-raised-button>Next</button>
+      </mat-card-actions>
+
+    </mat-card>
+
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <br>
+    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
+      {{usrData |json}}
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

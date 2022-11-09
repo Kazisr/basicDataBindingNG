@@ -38,10 +38,10 @@ export class Page1Component implements OnInit {
   }
 
 
-  recievePresent($event: { house: string; road: string; policeStation: string; postOffice: string; postCode: string; district: string; country: string; }){
+  recievePresent($event:any){
     this.userData.presentAddress = $event;
   }
-  recievePermanent($event: { house: string; road: string; policeStation: string; postOffice: string; postCode: string; district: string; country: string; }){
+  recievePermanent($event:any){
     this.userData.permanentAddress = $event;
   }
  currentAdd = {
@@ -73,6 +73,8 @@ export class Page1Component implements OnInit {
       postCode:"",
       district:"",
       country:"",
+      state:"",
+
     },
     permanentAddress:{
       house:"",
@@ -82,6 +84,7 @@ export class Page1Component implements OnInit {
       postCode:"",
       district:"",
       country:"",
+      state:"",
     },
     mNumber:"",
     pNumber:"",
