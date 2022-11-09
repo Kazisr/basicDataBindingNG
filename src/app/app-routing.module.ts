@@ -8,10 +8,11 @@ import {SecondComponent} from "./second/second.component";
 import {ThirdComponent} from "./third/third.component";
 import {ForthComponent} from "./forth/forth.component";
 import {FifthComponent} from "./fifth/fifth.component";
+import {HomeComponent} from "./home/home.component";
 
 const routes: Routes = [
 
-  { path: '', component: FirstComponent},
+  { path: '', component: HomeComponent},
   { path: 'p2', component: SecondComponent},
   { path: 'p3', component: ThirdComponent},
   { path: 'p4', component: ForthComponent},

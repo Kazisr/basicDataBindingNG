@@ -29,6 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ThirdComponent } from './third/third.component';
 import { ForthComponent } from './forth/forth.component';
 import { FifthComponent } from './fifth/fifth.component';
+import { HomeComponent } from './home/home.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { FifthComponent } from './fifth/fifth.component';
     SecondComponent,
     ThirdComponent,
     ForthComponent,
-    FifthComponent
+    FifthComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +68,9 @@ import { FifthComponent } from './fifth/fifth.component';
     MatGridListModule,
     ReactiveFormsModule,
     BrowserModule,
+    MatStepperModule,
+    MatChipsModule,
+
 
   ],
   providers: [

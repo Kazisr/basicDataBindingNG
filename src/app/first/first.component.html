@@ -1,23 +1,12 @@
-<mat-grid-list cols="3"  rowHeight="1:4"  >
-  <mat-grid-tile [colspan]="2">
     <br>
-    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
-      <div class=".mat-headline" style="text-align: center;">
-        <h2>SIGN UP YOUR PAYMENT ACCOUNT</h2>
-        <h4>Fill all form field to go next step</h4>
-        <mat-divider></mat-divider>
-
-        <div class=".mat-body-2">
-          <br>
+    <mat-card class="card" fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%">
           Personal Information
           <div>
             <br>
           </div>
-        </div>
-      </div>
       <div>
         <div>
-          <mat-form-field appearance="outline" style="width: 45%;">
+          <mat-form-field appearance="outline" style="width: 30%; padding-right: 65%; margin-right: 5%">
             <mat-label>ID No: </mat-label>
             <input type [(ngModel)]="usrData.ID" matInput placeholder="12345" required minlength="5">
             <mat-icon matPrefix>account_box</mat-icon>
@@ -25,44 +14,53 @@
         </div>
 
 
-          <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
+          <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
           <mat-label>Prefix</mat-label>
           <input [(ngModel)]="usrData.Name.prefix" name="prefix" matInput placeholder="Leonardo" required >
           </mat-form-field>
 
-        <mat-form-field appearance="outline" style="width: 45%;">
+        <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
           <mat-label>First Name</mat-label>
           <input type [(ngModel)]="usrData.Name.first" matInput placeholder="12345" required minlength="5">
         </mat-form-field>
 
-        <mat-form-field appearance="outline" style="width: 45%; margin-right: 10%">
+        <mat-form-field appearance="outline" style="width: 30%;">
           <mat-label>Middle Name</mat-label>
           <input [(ngModel)]="usrData.Name.middle" name="login" matInput placeholder="Leonardo" required >
         </mat-form-field>
 
-        <mat-form-field appearance="outline" style="width: 45%;">
+        <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
           <mat-label>Last Name</mat-label>
           <input type [(ngModel)]="usrData.Name.last" matInput placeholder="12345" required minlength="5">
         </mat-form-field>
 
-        <mat-form-field appearance="outline" style="width: 45%;">
+        <mat-form-field appearance="outline" style="padding-right: 30% ;width: 30%; margin-right: 5%">
           <mat-label>Suffix</mat-label>
           <input type [(ngModel)]="usrData.Name.suffix" matInput placeholder="12345" required minlength="5">
         </mat-form-field>
+        <div>
+          <mat-form-field class="example-chip-list" appearance="outline">
+            <mat-label>Favorite Fruits</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New fruit..."
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
       </div>
 
 
-        <mat-card-actions align="end">
-          <button type="submit"(click)=next() mat-raised-button>Next</button>
-        </mat-card-actions>
+<!--        <mat-card-actions align="end">-->
+<!--          <button type="submit"(click)=next() mat-raised-button>Next</button>-->
+<!--        </mat-card-actions>-->
 
     </mat-card>
-
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <br>
-    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
-      {{usrData |json}}
-    </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>

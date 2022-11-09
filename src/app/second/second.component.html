@@ -1,19 +1,9 @@
-<mat-grid-list cols="3"  rowHeight="1:4"  >
-  <mat-grid-tile [colspan]="2">
-    <br>
-    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
-      <div class=".mat-headline" style="text-align: center;">
-        <h2>SIGN UP YOUR PAYMENT ACCOUNT</h2>
-        <h4>Fill all form field to go next step</h4>
-        <mat-divider></mat-divider>
 
-        <div class=".mat-body-2">
-          <br>
-          Parents Information
-          <div>
-            <br>
-          </div>
-        </div>
+    <br>
+    <mat-card class="card" fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%">
+      Parents Information
+      <div>
+        <br>
       </div>
 
       <div>
@@ -48,17 +38,9 @@
       </div>
 
 
-      <mat-card-actions align="end">
-        <button type="submit"(click)=next() mat-raised-button>Next</button>
-      </mat-card-actions>
+<!--      <mat-card-actions align="end">-->
+<!--        <button type="submit"(click)=next() mat-raised-button>Next</button>-->
+<!--      </mat-card-actions>-->
 
     </mat-card>
 
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <br>
-    <mat-card class="card" fxFlex="50%" fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="60%" fxFlex.lg="50%">
-      {{usrData |json}}
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>

@@ -1,61 +1,114 @@
 <div>
-           <!-- {{whichOne}} -->
-<!--  <mat-form-field appearance="fill">-->
-<!--    <mat-label>Cars</mat-label>-->
-<!--    <select matNativeControl required>-->
-<!--      <option value="volvo">Volvo</option>-->
-<!--      <option value="saab">Saab</option>-->
-<!--      <option value="mercedes">Mercedes</option>-->
-<!--      <option value="audi">Audi</option>-->
-<!--    </select>-->
-<!--  </mat-form-field>-->
+<!--  <div>-->
+<!--    {{currentAdd |json}}-->
+<!--  </div>-->
 
-  <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;" layout-align="end center">
+  <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%">
     <mat-label>Country</mat-label>
-    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.country" matNativeControl required>
-      <mat-option value="Bangladesh">Bangladesh</mat-option>
-      <mat-option value="Russia">Russia</mat-option>
-      <mat-option value="Canada">Canada</mat-option>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.country" name="country">
+      <mat-option *ngFor="let country of countries" [value]="country.value">
+        {{country.viewValue}}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field *ngIf="currentAdd.country=='Russia'" appearance="outline" style="width: 30%;" layout-align="end center">
+  <mat-form-field *ngIf="currentAdd.country!='Bangladesh'" appearance="outline" style="width: 30%; padding-right: 5%">
     <mat-label>State</mat-label>
-    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.state" required>
-      <mat-option value="Adygea">Adygea</mat-option>
-      <mat-option value="Tatarstan">Tatarstan</mat-option>
-      <mat-option value="Khakassia">Khakassia</mat-option>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.state" name="state">
+      <mat-option *ngFor="let ruSate of ruSates" [value]="ruSate.value">
+        {{ruSate.viewValue}}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+  <mat-form-field *ngIf="currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%;padding-right: 5%">
+    <mat-label>Division</mat-label>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.division" name="division">
+      <mat-option *ngFor="let division of divisions" [value]="division.value">
+        {{division.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="currentAdd.country!='Bangladesh'" appearance="outline" style="width: 30%;%">
+    <mat-label>City</mat-label>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.district" name="city">
+      <mat-option *ngFor="let citie of cities" [value]="citie.value">
+        {{citie.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="currentAdd.division=='Dhaka' && currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%;%">
+    <mat-label>District</mat-label>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.district" name="district">
+      <mat-option *ngFor="let districtDHK of districtsDHK" [value]="districtDHK.value">
+        {{districtDHK.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="currentAdd.division=='Mymenshingh' && currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%;%">
+    <mat-label>District</mat-label>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.district" name="district">
+      <mat-option *ngFor="let districtMYM of districtsMYM" [value]="districtMYM.value">
+        {{districtMYM.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="currentAdd.division=='' && currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%;%">
+    <mat-label>District</mat-label>
+    <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.district" name="district">
+      <mat-option *ngFor="let districtAll of districtsAll" [value]="districtAll.value">
+        {{districtAll.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="currentAdd.country!='Bangladesh'" appearance="outline" style="width: 30%; padding-right: 5%;">
+    <mat-label>Street 1</mat-label>
+    <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.street1" matInput placeholder="138/B">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="currentAdd.country!='Bangladesh'" appearance="outline" style="width: 30%; padding-right: 5%;">
+    <mat-label>Street 2</mat-label>
+    <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.street2" matInput placeholder="138/B">
+  </mat-form-field>
+
+    <mat-form-field *ngIf="currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%; padding-right: 5%;">
         <mat-label>House/Village</mat-label>
         <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.house" matInput placeholder="138/B">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+    <mat-form-field *ngIf="currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%; padding-right: 5%;">
         <mat-label>Road/Block/Sector/Upazila</mat-label>
         <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.road" matInput placeholder="14">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 30%;" layout-align="end center">
+    <mat-form-field *ngIf="currentAdd.country=='Bangladesh' && currentAdd.district=='Dhaka'" appearance="outline" style="width: 30%;" layout-align="end center">
         <mat-label>Police Station</mat-label>
-        <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.policeStation" matInput placeholder="Uttara">
-      </mat-form-field>
+      <mat-select (keyup)="sendMessage()" [(ngModel)]="currentAdd.policeStation" name="district">
+        <mat-option *ngFor="let dhakaThana of dhakaThanas" [value]="dhakaThana.value">
+          {{dhakaThana.viewValue}}
+        </mat-option>
+      </mat-select>  </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+  <mat-form-field *ngIf="currentAdd.country=='Bangladesh' && currentAdd.district!='Dhaka'" appearance="outline" style="width: 30%;" layout-align="end center">
+    <mat-label>Police Station</mat-label>
+    <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.policeStation" matInput placeholder="Uttara">
+  </mat-form-field>
+
+    <mat-form-field *ngIf="currentAdd.country=='Bangladesh'" appearance="outline" style="width: 30%; padding-right: 5%;">
         <mat-label>Post Office</mat-label>
         <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.postOffice" matInput placeholder="Uttara">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 30%; padding-right: 5%;">
+    <mat-form-field appearance="outline" style="width: 30%;">
         <mat-label>Post Code</mat-label>
         <input type="number" (keyup)="sendMessage()" [(ngModel)]="currentAdd.postCode" matInput placeholder="1230">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 30%;" layout-align="end center">
-        <mat-label>District</mat-label>
-        <input (keyup)="sendMessage()" [(ngModel)]="currentAdd.district" matInput placeholder="Dhaka">
-      </mat-form-field>
+
 
 </div>
