@@ -6,8 +6,13 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatChipInputEvent} from '@angular/material/chips';
 
-export interface Fruit {
-  name: string;
+export interface PhoneNum {
+  number: string;
+}
+
+interface Select {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -26,6 +31,19 @@ export class FirstComponent implements OnInit {
   usrData:any;
 
 
+  genders: Select[] = [
+    {value: 'Male', viewValue: 'Male'},
+    {value: 'Female', viewValue: 'Female'},
+    {value: 'Other', viewValue: 'Female'},
+  ];
+
+  religions: Select[] = [
+    {value: 'Islam', viewValue: 'Islam'},
+    {value: 'Hinduism', viewValue: 'Hinduism'},
+    {value: 'Christanity', viewValue: 'Christanity'},
+    {value: 'Buddhisht', viewValue: 'Buddhisht'},
+  ];
+
   next(){
     // this.userData.presentAddress = aaa;
     this.data.setUserData(this.usrData);
@@ -36,25 +54,49 @@ export class FirstComponent implements OnInit {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
+  phnNumbers: PhoneNum[] = [];
+  mobNumbers: PhoneNum[] = [];
 
   add(event: MatChipInputEvent): void {
+    this.usrData.pNumber = this.phnNumbers;
     const value = (event.value || '').trim();
 
     // Add our fruit
     if (value) {
-      this.fruits.push({name: value});
+      this.phnNumbers.push({number: value});
     }
 
     // Clear the input value
     event.chipInput!.clear();
   }
 
-  remove(fruit: Fruit): void {
-    const index = this.fruits.indexOf(fruit);
+  remove(fruit: PhoneNum): void {
+    const index = this.phnNumbers.indexOf(fruit);
 
     if (index >= 0) {
-      this.fruits.splice(index, 1);
+      this.phnNumbers.splice(index, 1);
+    }
+  }
+
+
+  addMob(event: MatChipInputEvent): void {
+    this.usrData.mNumber = this.mobNumbers;
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.mobNumbers.push({number: value});
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removeMob(fruit: PhoneNum): void {
+    const index = this.mobNumbers.indexOf(fruit);
+
+    if (index >= 0) {
+      this.mobNumbers.splice(index, 1);
     }
   }
 

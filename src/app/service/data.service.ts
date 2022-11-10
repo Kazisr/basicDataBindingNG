@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-
+export interface PhoneNum {
+  number: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +19,12 @@ export class DataService {
       last:"",
       suffix:"",
     },
+    mNumber:'',
+    pNumber:"",
+    email:"",
+    gender:"",
+    religion:"",
+    nationality:"",
     faName:"",
     faOccu:"",
     maName:"",
@@ -45,13 +53,6 @@ export class DataService {
       street1:'',
       street2:'',
     },
-    mNumber:"",
-    pNumber:"",
-    email:"",
-    gender:"",
-    religion:"",
-    nationality:"",
-    state:"",
     bloodGroup:"",
     medicaLDisAbility:"",
     DOB:"",

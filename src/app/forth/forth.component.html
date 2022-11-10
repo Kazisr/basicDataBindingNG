@@ -1,1 +1,40 @@
-<p>forth works!</p>
+<br>
+<mat-card class="card" fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="100%">
+
+  <br>
+  Additional Information
+
+  <div>
+    <br>
+  </div>
+
+  <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
+    <mat-label>Blood Group</mat-label>
+    <mat-select [(ngModel)]="usrData.bloodGroup" name="blood">
+      <mat-option *ngFor="let blood of bloods" [value]="blood.value">
+        {{blood.viewValue}}
+      </mat-option>
+    </mat-select>
+    <mat-icon matPrefix>bloodtype</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 40%; margin-right: 5%">
+    <mat-label>Date of Birth</mat-label>
+    <input [(ngModel)]="usrData.DOB" matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <div>
+    <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
+      <mat-label>NID: </mat-label>
+      <input type [(ngModel)]="usrData.NID" matInput placeholder="612312312" require>
+      <mat-icon matPrefix>account_box</mat-icon>
+    </mat-form-field>
+  </div>
+  <!--      <mat-card-actions align="end">-->
+  <!--        <button type="submit"(click)=next() mat-raised-button>Next</button>-->
+  <!--      </mat-card-actions>-->
+
+</mat-card>

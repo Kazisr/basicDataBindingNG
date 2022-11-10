@@ -8,7 +8,7 @@
         <div>
           <mat-form-field appearance="outline" style="width: 30%; padding-right: 65%; margin-right: 5%">
             <mat-label>ID No: </mat-label>
-            <input type [(ngModel)]="usrData.ID" matInput placeholder="12345" required minlength="5">
+            <input type [(ngModel)]="usrData.ID" matInput placeholder="12345" require>
             <mat-icon matPrefix>account_box</mat-icon>
           </mat-form-field>
         </div>
@@ -21,34 +21,54 @@
 
         <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
           <mat-label>First Name</mat-label>
-          <input type [(ngModel)]="usrData.Name.first" matInput placeholder="12345" required minlength="5">
+          <input type [(ngModel)]="usrData.Name.first" matInput placeholder="12345" required>
         </mat-form-field>
 
         <mat-form-field appearance="outline" style="width: 30%;">
           <mat-label>Middle Name</mat-label>
           <input [(ngModel)]="usrData.Name.middle" name="login" matInput placeholder="Leonardo" required >
         </mat-form-field>
-
         <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
           <mat-label>Last Name</mat-label>
-          <input type [(ngModel)]="usrData.Name.last" matInput placeholder="12345" required minlength="5">
+          <input type [(ngModel)]="usrData.Name.last" matInput placeholder="12345" required>
         </mat-form-field>
 
         <mat-form-field appearance="outline" style="padding-right: 30% ;width: 30%; margin-right: 5%">
           <mat-label>Suffix</mat-label>
-          <input type [(ngModel)]="usrData.Name.suffix" matInput placeholder="12345" required minlength="5">
+          <input type [(ngModel)]="usrData.Name.suffix" matInput placeholder="12345" required>
         </mat-form-field>
         <div>
           <mat-form-field class="example-chip-list" appearance="outline">
-            <mat-label>Favorite Fruits</mat-label>
-            <mat-chip-list #chipList aria-label="Fruit selection">
-              <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
-                {{fruit.name}}
+            <mat-label>Mobile Numbers</mat-label>
+            <mat-icon matPrefix>smartphone</mat-icon>
+            <mat-chip-list #chipListMob aria-label="Mobile">
+              <mat-chip *ngFor="let mobNumber of mobNumbers" (removed)="removeMob(mobNumber)">
+                {{mobNumber.number}}
                 <button matChipRemove>
                   <mat-icon>cancel</mat-icon>
                 </button>
               </mat-chip>
-              <input placeholder="New fruit..."
+              <input placeholder="New Mobile Number..."
+                     [matChipInputFor]="chipListMob"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="addMob($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="example-chip-list" appearance="outline">
+            <mat-label>Phone Numbers</mat-label>
+            <mat-icon matPrefix>local_phone</mat-icon>
+            <mat-chip-list #chipList aria-label="Phone">
+              <mat-chip *ngFor="let phnNumber of phnNumbers" (removed)="remove(phnNumber)">
+                {{phnNumber.number}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New Phone Number..."
                      [matChipInputFor]="chipList"
                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                      [matChipInputAddOnBlur]="addOnBlur"
@@ -57,6 +77,30 @@
           </mat-form-field>
         </div>
       </div>
+
+      <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
+        <mat-label>Email</mat-label>
+        <mat-icon matPrefix>email</mat-icon>
+        <input type [(ngModel)]="usrData.email" matInput placeholder="someone@gmail.com" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 30%; margin-right: 5%">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="usrData.gender" name="gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender.value">
+            {{gender.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 30%; ">
+        <mat-label>Religion</mat-label>
+        <mat-select [(ngModel)]="usrData.religion" name="religion">
+          <mat-option *ngFor="let religion of religions" [value]="religion.value">
+            {{religion.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
 
 <!--        <mat-card-actions align="end">-->
